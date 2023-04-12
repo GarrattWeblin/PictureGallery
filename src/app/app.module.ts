@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageTableComponent } from './image-table/image-table.component';
 import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar'
 import { CardElevationDirective } from './card-elevation.directive';
 
 @NgModule({
@@ -18,7 +20,9 @@ import { CardElevationDirective } from './card-elevation.directive';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
