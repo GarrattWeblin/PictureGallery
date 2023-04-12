@@ -1,0 +1,43 @@
+
+mat-card {
+
+    height: 47.8vh;
+    width: 36vh;
+    margin: 2.5% 2.5% 2.5% 2.5%;
+    float: left;
+    
+}
+
+mat-card-image {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.image-table {
+
+    margin: 5%;
+    max-width: 100%;
+    height: 100vh;
+    
+}
+
+.overlay {
+      display: inline-block;
+      color: white;
+      background-color: rgba(0,0,0,0.7);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 4px;
+
+  }
+
+  .overlay-text {
+    display: flex;
+    justify-content: center;
+    //padding-top: 50%;
+    margin: 5%;
+    overflow: hidden;
+    cursor: default;
+  }
