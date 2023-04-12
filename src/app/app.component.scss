@@ -1,3 +1,18 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+
+  .menu-spacer {
+    padding-right: 50px;
+  }
+
+
+  .stickyBar {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+  }
+
+  .footer {
+    margin-top: 5%;
+  }
