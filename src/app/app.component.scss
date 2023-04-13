@@ -1,3 +1,14 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; 
+  height: auto;
+}
+
 .example-spacer {
     flex: 1 1 auto;
   }
@@ -14,5 +25,14 @@
   }
 
   .footer {
-    margin-top: 5%;
+    max-height: 200px;
+    z-index: 1000;
+  }
+
+  .display {
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+
+
   }

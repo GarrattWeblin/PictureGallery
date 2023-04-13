@@ -1,0 +1,16 @@
+<button mat-button [matMenuTriggerFor]="login">Login</button>
+<mat-menu xPosition="before" #login="matMenu">
+    <div (click) = "$event.stopPropagation()" class="login-details">
+        <mat-form-field (click) = "$event.stopPropagation()">
+            <mat-label>Username</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field  (click) = "$event.stopPropagation()">
+            <mat-label>Password</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <button mat-menu-item color="primary">Login</button>
+
+</mat-menu>

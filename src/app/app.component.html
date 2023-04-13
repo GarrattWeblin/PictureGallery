@@ -1,23 +1,29 @@
-<div class="stickyBar">
-  <mat-toolbar>
-
-    <span>Garratt Weblin</span>
-    <span class="menu-spacer"></span>
-
-    <a mat-button [routerLink]="'/miniature-portfolio'"> Miniature Portfolio </a>
-    <a mat-button [routerLink]="'/about'"> About </a>
-
-  </mat-toolbar>
-</div>
-
 <div>
-  <router-outlet></router-outlet>
-</div>
+  <div class="stickyBar">
+    <mat-toolbar color="primary">
+  
+      <span>Garratt Weblin</span>
+      <span class="menu-spacer"></span>
+  
+      <a mat-button [routerLink]="'/miniature-portfolio'"> Miniature Portfolio </a>
+      <a mat-button [routerLink]="'/about'"> About </a>
+      
+      <span class="example-spacer"></span>
 
-<div class="footer">
-  <mat-toolbar>
+      <app-login-menu></app-login-menu>
 
-    <span>Footer</span>
-
-  </mat-toolbar>
+    </mat-toolbar>
+  </div>
+  
+  <div class="display">
+    <router-outlet></router-outlet>
+  </div>
+  
+  <!-- <div class="footer">
+    <mat-toolbar>
+  
+      <span>Footer</span>
+  
+    </mat-toolbar>
+  </div> -->
 </div>

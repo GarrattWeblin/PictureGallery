@@ -11,7 +11,12 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from "@angular/material/button"
 import { CardElevationDirective } from './card-elevation.directive';
 import { MiniaturePortfolioComponent } from './miniature-portfolio/miniature-portfolio.component';
+import { MatFormFieldModule } from "@angular/material/form-field"
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from "@angular/material/menu"
 import { AboutComponent } from './about/about.component';
+import { LoginMenuComponent } from './login-menu/login-menu.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +24,8 @@ import { AboutComponent } from './about/about.component';
     ImageTableComponent,
     CardElevationDirective,
     MiniaturePortfolioComponent,
-    AboutComponent
+    AboutComponent,
+    LoginMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,10 @@ import { AboutComponent } from './about/about.component';
     MatCardModule,
     MatIconModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
