@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FileUploadService } from '../services/file-upload.service';
+import { map } from 'rxjs';
 
 export interface Image {
   id: number;
@@ -16,13 +18,14 @@ export interface Image {
 export class ImageTableComponent { 
 
   images: Image[] = []
+  fileUploads?: any[];
 
   defaultElevation = 2;
   raisedElevation = 8;
 
   desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum lectus leo. Ut dictum dapibus est, quis cursus tortor pretium non. Aenean dictum mauris augue, vitae lacinia tortor ultrices a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In hac habitasse platea dictumst. Cras sit amet mattis ex. Nulla fringilla tortor consequat, egestas ipsum a, eleifend sapien. Fusce vehicula commodo diam, at lobortis sem viverra ut. Sed placerat nibh sit amet tellus facilisis commodo. Suspendisse eget felis vel ex iaculis congue eget a elit. Fusce pulvinar dolor eget risus porta mollis.";
 
-  constructor() {
+  constructor( private uploadService: FileUploadService) {
 
     for (let i = 0; i < 11; i++) {
 
@@ -30,6 +33,21 @@ export class ImageTableComponent {
 
     }
 
+  }
+
+
+  ngOnInit(): void {
+    this.uploadService.getFiles(6).snapshotChanges().pipe(
+      map(changes =>
+        // store the key
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    ).subscribe(fileUploads => {
+      this.fileUploads = fileUploads;
+      console.log(this.fileUploads);
+    });
+
+    
   }
 
 

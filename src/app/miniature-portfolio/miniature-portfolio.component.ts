@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { trigger, transition, animate, style, state } from "@angular/animations";
 import { AuthService } from '../auth.service';
+import { FileUpload, FileUploadService } from '../services/file-upload.service';
 
 @Component({
   selector: 'app-miniature-portfolio',
@@ -41,9 +42,10 @@ export class MiniaturePortfolioComponent {
   state: string = 'default';
 
 
+  percentage = 0;
   isUserLoggedIn = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private uploadService: FileUploadService) {}
 
   ngOnInit() {
     let storeData = localStorage.getItem("isUserLoggedIn");
@@ -69,6 +71,16 @@ export class MiniaturePortfolioComponent {
 
     this.fileName = element.files?.item(0)?.name!;
 
+    let currentFileUpload = new FileUpload(element.files?.item(0)!);
+
+    this.uploadService.pushFileToStorage(currentFileUpload).subscribe({
+      
+        next: (percentage) => this.percentage = Math.round(percentage ? percentage : 0),
+        error: ((e) => console.error(e))
+      
+    });
+
+    console.log("Upload");
 
  }
 
