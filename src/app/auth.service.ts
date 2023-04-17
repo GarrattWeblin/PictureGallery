@@ -13,14 +13,14 @@ export class AuthService {
     console.log(userName);
     console.log(password);
     if (userName == 'admin' && password == 'admin') {
-    this.isUserLoggedIn = true;
+      this.isUserLoggedIn = true;
     }
-    // = userName == 'admin' && password == 'admin';
+    
     localStorage.setItem('isUserLoggedIn', this.isUserLoggedIn ? "true" : "false"); 
 
   return of(this.isUserLoggedIn).pipe(
     // forced login delay
-     delay(1000),
+     delay(100),
      tap(val => { 
         console.log("Is User Authentication is successful: " + val); 
      })
@@ -31,6 +31,8 @@ export class AuthService {
   logout(): void {
   this.isUserLoggedIn = false;
      localStorage.removeItem('isUserLoggedIn'); 
+     // Reload the page to force component update
+     // TODO - Is there a better way that doesn't force an entire reload?
      window.location.reload();
   }
 

@@ -10,7 +10,7 @@ export class LoginMenuComponent {
 
   username = "";
   userPassword = "";
-  //@ViewChild('usernameInput') searchElement: ElementRef = {} as ElementRef;
+  unsuccessfulLoginAttempt = false;
 
   @ViewChild("myinput") myInputField: ElementRef = {} as ElementRef;
 
@@ -25,9 +25,14 @@ export class LoginMenuComponent {
     this.authService.login(this.username, this.userPassword).subscribe( data => { 
       console.log("Is Login Success: " + data); 
 
-    window.location.reload();
+      if (data) {
+        window.location.reload();
+      }
+      else {
+        this.unsuccessfulLoginAttempt = true;
+      }
 
-});
+    });
 
   }
 
