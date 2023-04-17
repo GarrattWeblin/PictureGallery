@@ -1,16 +1,16 @@
-<button mat-button [matMenuTriggerFor]="login">Login</button>
+<button mat-button (menuOpened)="menuOpened()" [matMenuTriggerFor]="login">Login</button>
 <mat-menu xPosition="before" #login="matMenu">
-    <div (click) = "$event.stopPropagation()" class="login-details">
-        <mat-form-field (click) = "$event.stopPropagation()">
+    <div (click)="$event.stopPropagation()" class="login-details">
+        <mat-form-field  (click) = "$event.stopPropagation()" (keydown.tab)="$event.stopPropagation()">
             <mat-label>Username</mat-label>
-            <input matInput>
+            <input matInput #myinput [(ngModel)]='username'>
         </mat-form-field>
-        <mat-form-field  (click) = "$event.stopPropagation()">
+        <mat-form-field (click)="$event.stopPropagation()" (keydown.tab)="$event.stopPropagation()">
             <mat-label>Password</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]='userPassword'>
         </mat-form-field>
     </div>
 
-    <button mat-menu-item color="primary">Login</button>
+    <button mat-menu-item color="primary" (click)="userlogin()" (keydown.tab)="$event.stopPropagation()">Login</button>
 
 </mat-menu>

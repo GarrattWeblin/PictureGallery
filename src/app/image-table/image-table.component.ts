@@ -24,7 +24,7 @@ export class ImageTableComponent {
 
   constructor() {
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 11; i++) {
 
       this.images.push({id: i, name: "test" + i, description: this.desc, image: "", isHovered: false})
 

@@ -16,6 +16,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from "@angular/material/menu"
 import { AboutComponent } from './about/about.component';
 import { LoginMenuComponent } from './login-menu/login-menu.component';
+import { FormsModule } from '@angular/forms';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { LoginMenuComponent } from './login-menu/login-menu.component';
     CardElevationDirective,
     MiniaturePortfolioComponent,
     AboutComponent,
-    LoginMenuComponent
+    LoginMenuComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { LoginMenuComponent } from './login-menu/login-menu.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

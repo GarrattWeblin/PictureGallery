@@ -10,7 +10,13 @@
       
       <span class="example-spacer"></span>
 
-      <app-login-menu></app-login-menu>
+      <div *ngIf="!isUserLoggedIn;">
+        <app-login-menu></app-login-menu>
+      </div>
+
+      
+
+      <app-logout *ngIf="isUserLoggedIn;"></app-logout>
 
     </mat-toolbar>
   </div>

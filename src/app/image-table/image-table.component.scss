@@ -4,8 +4,7 @@ mat-card {
     height: 47.8vh;
     width: 36vh;
     margin: 2.5% 2.5% 2.5% 2.5%;
-    float: left;
-    
+
 }
 
 mat-card-image {
@@ -15,30 +14,31 @@ mat-card-image {
 }
 
 .image-table {
-
-    //margin: 2.5% 5% 5% 5%;
+    display: flex;
     max-width: 100%;
-    height: 100vh;
-    
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
 }
 
 .overlay {
-      display: inline-block;
-      color: white;
-      background-color: rgba(0,0,0,0.7);
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      border-radius: 4px;
+    display: inline-block;
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 4px;
 
-  }
+}
 
-  .overlay-text {
+.overlay-text {
     display: flex;
     justify-content: center;
-    //padding-top: 50%;
     margin: 5%;
     overflow: hidden;
     cursor: default;
-  }
+}
   

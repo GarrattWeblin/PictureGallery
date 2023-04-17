@@ -10,29 +10,29 @@
 }
 
 .example-spacer {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
 
-  .menu-spacer {
-    padding-right: 50px;
-  }
-
-
-  .stickyBar {
-    position: sticky;
-    top: 0;
-    z-index: 10000;
-  }
-
-  .footer {
-    max-height: 200px;
-    z-index: 1000;
-  }
-
-  .display {
-    min-height: 100vh;
-    height: 100%;
-    display: flex;
+.menu-spacer {
+  padding-right: 50px;
+}
 
 
-  }
+.stickyBar {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
+
+.footer {
+  max-height: 200px;
+  z-index: 1000;
+}
+
+.display {
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  //background-color: black;
+
+}
