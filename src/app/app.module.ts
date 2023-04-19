@@ -21,6 +21,10 @@ import { LogoutComponent } from './logout/logout.component';
 
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire/compat'
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database'
+import { AngularFireStorageModule } from '@angular/fire/compat/storage'
 
 //import { AngularFireModule } from 'angularfire2';
 //import { AngularFireStorageModule } from 'angularfire2/storage';
@@ -40,6 +44,24 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyCF7M2YABH_AS8OIgD2YsQHX-APdrpmzjA",
+      authDomain: "portfolio-45345.firebaseapp.com",
+      storageBucket: "portfolio-45345.appspot.com",
+      projectId: "portfolio-45345",
+      databaseURL: "https://portfolio-45345-default-rtdb.europe-west1.firebasedatabase.app"
+    }),
+    provideFirebaseApp(() => initializeApp({ 
+      apiKey: "AIzaSyCF7M2YABH_AS8OIgD2YsQHX-APdrpmzjA",
+      authDomain: "portfolio-45345.firebaseapp.com",
+      storageBucket: "portfolio-45345.appspot.com",
+      projectId: "portfolio-45345",
+      databaseURL: "https://portfolio-45345-default-rtdb.europe-west1.firebasedatabase.app"
+     })),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
     // AngularFireModule.initializeApp({
     //   apiKey: "AIzaSyCF7M2YABH_AS8OIgD2YsQHX-APdrpmzjA",
     //   authDomain: "portfolio-45345.firebaseapp.com",
@@ -60,12 +82,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     // AngularFireModule.initializeApp(environment.firebase),
     // AngularFireDatabaseModule,
     // AngularFireStorageModule
-    provideFirebaseApp(() => initializeApp({ 
-      apiKey: "AIzaSyCF7M2YABH_AS8OIgD2YsQHX-APdrpmzjA",
-      authDomain: "portfolio-45345.firebaseapp.com",
-      storageBucket: "portfolio-45345.appspot.com",
-      projectId: "portfolio-45345" })),
-    provideFirestore(() => getFirestore()),
+
   ],
   providers: [],
   bootstrap: [AppComponent] 
