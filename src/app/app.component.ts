@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from './auth.service';
+import { Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent { 
   
+  firestore: Firestore = inject(Firestore);
+
   isUserLoggedIn = false;
 
   constructor(private authService: AuthService) {}

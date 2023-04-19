@@ -105,6 +105,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "picture-gallery:build:production",
+            "firebaseProject": "portfolio-45345",
+            "firebaseHostingSite": "portfolio-45345"
+          }
         }
       }
     }

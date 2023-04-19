@@ -1,4 +1,13 @@
 {
+  "targets": {
+    "portfolio-45345": {
+      "hosting": {
+        "picture-gallery": [
+          "portfolio-45345"
+        ]
+      }
+    }
+  },
   "projects": {
     "default": "portfolio-45345"
   }

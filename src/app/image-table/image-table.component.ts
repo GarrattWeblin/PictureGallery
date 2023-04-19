@@ -37,15 +37,16 @@ export class ImageTableComponent {
 
 
   ngOnInit(): void {
-    this.uploadService.getFiles(6).snapshotChanges().pipe(
-      map(changes =>
-        // store the key
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      )
-    ).subscribe(fileUploads => {
-      this.fileUploads = fileUploads;
-      console.log(this.fileUploads);
-    });
+
+    // this.uploadService.getFiles(6).snapshotChanges().pipe(
+    //   map(changes =>
+    //     // store the key
+    //     changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+    //   )
+    // ).subscribe(fileUploads => {
+    //   this.fileUploads = fileUploads;
+    //   console.log(this.fileUploads);
+    // });
 
     
   }

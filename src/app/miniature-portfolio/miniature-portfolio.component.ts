@@ -73,12 +73,12 @@ export class MiniaturePortfolioComponent {
 
     let currentFileUpload = new FileUpload(element.files?.item(0)!);
 
-    this.uploadService.pushFileToStorage(currentFileUpload).subscribe({
+    // this.uploadService.pushFileToStorage(currentFileUpload).subscribe({
       
-        next: (percentage) => this.percentage = Math.round(percentage ? percentage : 0),
-        error: ((e) => console.error(e))
+    //     next: (percentage) => this.percentage = Math.round(percentage ? percentage : 0),
+    //     error: ((e) => console.error(e))
       
-    });
+    // });
 
     console.log("Upload");
 

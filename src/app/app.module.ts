@@ -19,10 +19,13 @@ import { LoginMenuComponent } from './login-menu/login-menu.component';
 import { FormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
 
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { environment } from '../environments/environment';
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+
+//import { AngularFireModule } from 'angularfire2';
+//import { AngularFireStorageModule } from 'angularfire2/storage';
+// import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+// import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -37,6 +40,13 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
+    // AngularFireModule.initializeApp({
+    //   apiKey: "AIzaSyCF7M2YABH_AS8OIgD2YsQHX-APdrpmzjA",
+    //   authDomain: "portfolio-45345.firebaseapp.com",
+    //   storageBucket: "portfolio-45345.appspot.com",
+    //   projectId: "portfolio-45345",
+    // }),
+    // AngularFireStorageModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
@@ -47,9 +57,15 @@ import { environment } from '../environments/environment';
     MatInputModule,
     MatMenuModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFireStorageModule
+    // AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireDatabaseModule,
+    // AngularFireStorageModule
+    provideFirebaseApp(() => initializeApp({ 
+      apiKey: "AIzaSyCF7M2YABH_AS8OIgD2YsQHX-APdrpmzjA",
+      authDomain: "portfolio-45345.firebaseapp.com",
+      storageBucket: "portfolio-45345.appspot.com",
+      projectId: "portfolio-45345" })),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent] 
