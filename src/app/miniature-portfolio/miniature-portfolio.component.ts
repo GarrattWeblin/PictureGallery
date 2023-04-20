@@ -80,7 +80,7 @@ export class MiniaturePortfolioComponent {
 
     console.log(this.desc);
     
-      
+    this.fileToUpload = element;
 
 
  }
