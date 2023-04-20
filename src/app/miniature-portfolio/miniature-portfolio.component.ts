@@ -42,7 +42,9 @@ export class MiniaturePortfolioComponent {
   fileName : string = '';
   state: string = 'default';
 
-  currentFileUpload: FileUpload | undefined;
+  //currentFileUpload: FileUpload | undefined;
+
+  fileToUpload: HTMLInputElement | undefined;
 
   percentage = 0;
   isUserLoggedIn = false;
@@ -75,15 +77,20 @@ export class MiniaturePortfolioComponent {
     const element = event.currentTarget as HTMLInputElement;
 
     this.fileName = element.files?.item(0)?.name!;
-    
-    this.currentFileUpload = new FileUpload(element.files?.item(0)!, this.title, this.desc);
 
+    console.log(this.desc);
+    
+      
 
 
  }
 
  uploadToDatabase() {
-    this.uploadService.pushFileToStorage(this.currentFileUpload!).subscribe({
+
+    let currentFileUpload = new FileUpload(this.fileToUpload?.files?.item(0)!, this.title, this.desc);
+
+
+    this.uploadService.pushFileToStorage(currentFileUpload).subscribe({
         
       next: (percentage) => this.percentage = Math.round(percentage ? percentage : 0),
       error: ((e) => console.error(e))

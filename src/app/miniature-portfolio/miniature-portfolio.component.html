@@ -1,42 +1,45 @@
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 5%; ;">
-    <div class="title">
-        <h1> Miniature Portfolio</h1>
+<div style="width: 100%;">
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 5%;">
+        <div class="title">
+            <h1> Miniature Portfolio</h1>
+        </div>
+        <div style="display: flex; width: 100%; flex-direction: column;">
+            <app-image-table></app-image-table>
+        </div>
     </div>
-    <div style="display: flex;">
-        <app-image-table></app-image-table>
-    </div>
-</div>
-<div class="upload">
-    <div class="upload-menu" *ngIf="menuExpanded" [@visibleHidden]="menuExpanded ? 'visible' : 'hidden'">
-        <mat-card class="mat-elevation-z16" style="height: 100%; width: 100%;">
-            <mat-card-header style="margin-bottom: 10px;">
-                <mat-card-title>Upload Image</mat-card-title>
-            </mat-card-header>
-            <mat-card-content style="max-height: 100%; height: 100%;">
-                <mat-form-field appearance="fill">
-                    <mat-label>Title</mat-label>
-                    <input matInput [(ngModel)]='title'>
-                </mat-form-field>
-                <mat-form-field style="width: 100%;">
-                    <mat-label>Description</mat-label>
-                    <textarea matInput [(ngModel)]='desc' style="resize: none; overflow: auto;" rows="8" cols="40" ></textarea>
-                </mat-form-field>
-
-                <div style="display: block; align-items: center; max-height: 45px; height: 45px;">
-                    <span style="border: solid 3px red; float: left; width: 320px; height: 40px; max-width: 320px; overflow: hidden; justify-self: center;">{{fileName}}</span>
-                    <div (click)="uploadFile.click()" style="justify-self: center;">
-                        <button style="float: right; height: 45px;" mat-raised-button color="primary">Choose File</button>
-                        <input #uploadFile (change)="upload($event)" type='file' style="display:none"/> 
+    <div class="upload">
+        <div class="upload-menu" *ngIf="menuExpanded" [@visibleHidden]="menuExpanded ? 'visible' : 'hidden'">
+            <mat-card class="mat-elevation-z16" style="height: 100%; width: 100%;">
+                <mat-card-header style="margin-bottom: 10px;">
+                    <mat-card-title>Upload Image</mat-card-title>
+                </mat-card-header>
+                <mat-card-content style="max-height: 100%; height: 100%;">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Title</mat-label>
+                        <input matInput [(ngModel)]='title'>
+                    </mat-form-field>
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput [(ngModel)]='desc' style="resize: none; overflow: auto;" rows="8" cols="40" ></textarea>
+                    </mat-form-field>
+    
+                    <div style="display: block; align-items: center; max-height: 45px; height: 45px;">
+                        <span style="border: solid 3px red; float: left; width: 320px; height: 40px; max-width: 320px; overflow: hidden; justify-self: center;">{{fileName}}</span>
+                        <div (click)="uploadFile.click()" style="justify-self: center;">
+                            <button style="float: right; height: 45px;" mat-raised-button color="primary">Choose File</button>
+                            <input #uploadFile (change)="upload($event)" type='file' style="display:none"/> 
+                        </div>
                     </div>
-                </div>
-            </mat-card-content>
-            <mat-card-actions style="width: 100%; display: block;">
-                <button style="float: right;" mat-raised-button color="primary" (click)="uploadToDatabase()">Upload</button> 
-            </mat-card-actions>
-        </mat-card>
+                </mat-card-content>
+                <mat-card-actions style="width: 100%; display: block;">
+                    <button style="float: right;" mat-raised-button color="primary" (click)="uploadToDatabase()">Upload</button> 
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <button *ngIf="isUserLoggedIn;" mat-fab matTooltip="Upload" class="upload-button" color="primary" aria-label="Upload new image" (click)="uploadClicked()" >
+            <mat-icon [@rotatedState]='state'>add</mat-icon>
+        </button>
     </div>
-    <button *ngIf="isUserLoggedIn;" mat-fab matTooltip="Upload" class="upload-button" color="primary" aria-label="Upload new image" (click)="uploadClicked()" >
-        <mat-icon [@rotatedState]='state'>add</mat-icon>
-    </button>
+    
 </div>
 

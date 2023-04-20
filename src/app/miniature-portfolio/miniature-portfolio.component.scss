@@ -36,3 +36,7 @@ h1 {
 .file-input {
     display: none;
   }
+
+  :host {
+    width: 100%;
+  }
