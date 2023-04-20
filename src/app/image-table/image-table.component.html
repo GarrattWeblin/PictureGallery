@@ -1,12 +1,12 @@
 <div class="image-table">
-    <mat-card appCardElevation *ngFor="let image of images" (mouseenter)="image.isHovered = true" (mouseleave)="image.isHovered = false">
+    <mat-card appCardElevation *ngFor="let a of images" (mouseenter)="a.isHovered = true" (mouseleave)="a.isHovered = false">
 
-        <img mat-card-image src="assets/PXL_20230410_152350607.MP.jpg" alt="image.name"/>
+        <img mat-card-image src="{{a.image}}" alt="{{a.name}}"/>
         
-        <div *ngIf="image.isHovered" class="overlay">
+        <div *ngIf="a.isHovered" class="overlay">
             
             <div class="overlay-text">
-                {{image.description}}
+                {{a.description}}
             </div>
         </div>
     </mat-card>

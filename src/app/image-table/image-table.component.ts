@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { FileUploadService } from '../services/file-upload.service';
+import { FileUpload, FileUploadService } from '../services/file-upload.service';
 import { Observable, map } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/compat/database'
 
 export interface Image {
-  id: number;
+  id: string;
   name: string;
   description: string;
   image: string;
   isHovered: boolean;
+
+  
 }
 
 @Component({
@@ -34,6 +36,13 @@ export class ImageTableComponent {
 
     this.items.subscribe(e => {
       console.log(e);
+
+      this.images = [];
+
+      e.forEach((d: FileUpload) => {
+        this.images.push({id: "", description: d.desc, image: d.url, name: d.name, isHovered: false})
+      })
+    
     });
 
   } 

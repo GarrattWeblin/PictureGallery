@@ -41,11 +41,14 @@ export class MiniaturePortfolioComponent {
   menuExpanded = false;
   fileName : string = '';
   state: string = 'default';
-  private basePath = '/Miniatures';
 
+  currentFileUpload: FileUpload | undefined;
 
   percentage = 0;
   isUserLoggedIn = false;
+
+  desc = "";
+  title = "";
 
   constructor(private authService: AuthService, private uploadService: FileUploadService, private db: AngularFireDatabase) {}
 
@@ -73,18 +76,21 @@ export class MiniaturePortfolioComponent {
 
     this.fileName = element.files?.item(0)?.name!;
     
+    this.currentFileUpload = new FileUpload(element.files?.item(0)!, this.title, this.desc);
 
-    let currentFileUpload = new FileUpload(element.files?.item(0)!, "", "" );
 
-    this.uploadService.pushFileToStorage(currentFileUpload).subscribe({
-      
-        next: (percentage) => this.percentage = Math.round(percentage ? percentage : 0),
-        error: ((e) => console.error(e))
-      
+
+ }
+
+ uploadToDatabase() {
+    this.uploadService.pushFileToStorage(this.currentFileUpload!).subscribe({
+        
+      next: (percentage) => this.percentage = Math.round(percentage ? percentage : 0),
+      error: ((e) => console.error(e))
+
     });
 
     console.log("Upload");
-
  }
 
  
