@@ -25,6 +25,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database'
 import { AngularFireStorageModule } from '@angular/fire/compat/storage'
+import { environment } from 'src/environments/environment';
 
 //import { AngularFireModule } from 'angularfire2';
 //import { AngularFireStorageModule } from 'angularfire2/storage';
@@ -44,31 +45,14 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage'
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp({
-      apiKey: "AIzaSyCF7M2YABH_AS8OIgD2YsQHX-APdrpmzjA",
-      authDomain: "portfolio-45345.firebaseapp.com",
-      storageBucket: "portfolio-45345.appspot.com",
-      projectId: "portfolio-45345",
-      databaseURL: "https://portfolio-45345-default-rtdb.europe-west1.firebasedatabase.app"
-    }),
-    provideFirebaseApp(() => initializeApp({ 
-      apiKey: "AIzaSyCF7M2YABH_AS8OIgD2YsQHX-APdrpmzjA",
-      authDomain: "portfolio-45345.firebaseapp.com",
-      storageBucket: "portfolio-45345.appspot.com",
-      projectId: "portfolio-45345",
-      databaseURL: "https://portfolio-45345-default-rtdb.europe-west1.firebasedatabase.app"
-     })),
+    AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp(
+      environment.firebase
+     )),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    // AngularFireModule.initializeApp({
-    //   apiKey: "AIzaSyCF7M2YABH_AS8OIgD2YsQHX-APdrpmzjA",
-    //   authDomain: "portfolio-45345.firebaseapp.com",
-    //   storageBucket: "portfolio-45345.appspot.com",
-    //   projectId: "portfolio-45345",
-    // }),
-    // AngularFireStorageModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
